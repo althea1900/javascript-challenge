@@ -4,6 +4,9 @@ var tableData = data;
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
+// The Filter button
+var submit = d3.select("filter-btn");
+
 // Console.log the data from data.js
 console.log(tableData);
 
