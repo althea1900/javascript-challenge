@@ -26,17 +26,21 @@ data.forEach(function(sightingReport) {
 
 // Display data by search date
 submit.on("click", function(){
-  tbody.html("");
-  // renderTable();
-
-      // Select the input date get the raw HTML nodes
+      
+      // Clear table    
+      tbody.html("");
+      
+      // Select the inputed date and get it's value
       var inputElement = d3.select("#datetime");
-      // Get the value property of the input date, state, shape
       var inputValue = inputElement.property("value");
-      // console.log input value
       console.log(inputValue);
-      // Filter Data with datetime equal to input value
-      var filteredDate = data.filter(sightingReport => sightingReport.datetime === inputValue);
+
+      // Get selected data with datetime equal to input 
+      var selectedDate = data.filter(sightingReport => sightingReport.datetime === inputValue);
       // console.log filter values
-      console.log(filteredDate);
+      console.log(selectedDate);
+          
+      if (selectedDate.length == 0) {
+          alert("No sightings on " + inputValue);
+      }
 });
