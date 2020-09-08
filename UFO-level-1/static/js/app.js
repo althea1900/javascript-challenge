@@ -7,7 +7,7 @@ var tbody = d3.select("tbody");
 // The Filter button
 var submit = d3.select("#filter-btn");
 
-// The Filter button
+// The Date Field
 var searchDate = d3.select("#datetime");
 
 // Console.log the data from data.js
@@ -27,6 +27,8 @@ data.forEach(function(sightingReport) {
 // Display data by search date
 submit.on("click", function(){
       
+  event.preventDefault();
+
       // Clear table    
       tbody.html("");
       
@@ -41,6 +43,17 @@ submit.on("click", function(){
       console.log(selectedDate);
           
       if (selectedDate.length == 0) {
-          alert("No sightings on " + inputValue);
+          alert("No sightings on " + inputValue + ". Plese use MM/DD/YYYY format (without leading zeros).");
       }
+      else
+      selectedDate.forEach(function(selected) {
+        console.log(selected);
+        var row = tbody.append("tr");
+         Object.entries(selected).forEach(function([key, value]) {
+           console.log(key, value);
+           var cell = tbody.append("td");
+           cell.text(value);
+         });
+       });
+
 });
