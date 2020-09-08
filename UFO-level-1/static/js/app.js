@@ -26,7 +26,7 @@ data.forEach(function(sightingReport) {
 
 // Display data by search date
 submit.on("click", function(){
-  // tbody.html("");
+  tbody.html("");
   // renderTable();
 
       // Select the input date get the raw HTML nodes
@@ -36,7 +36,7 @@ submit.on("click", function(){
       // console.log input value
       console.log(inputValue);
       // Filter Data with datetime equal to input value
-      var filteredData = data.filter(sightingReport => sightingReport.datetime === inputValue);
+      var filteredDate = data.filter(sightingReport => sightingReport.datetime === inputValue);
       // console.log filter values
-      console.log(filteredData);
+      console.log(filteredDate);
 });
